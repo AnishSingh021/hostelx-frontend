@@ -59,7 +59,7 @@ export default function ProductDetailsPage() {
 
   const handleStartChat = async () => {
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/chats`, {
+      const response = await fetch(`${BACKEND_URL}/api/chats`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${user.token}` },
         body: JSON.stringify({ userId: product.seller._id, productId: product._id })
@@ -171,7 +171,7 @@ export default function ProductDetailsPage() {
     setReviewSuccessMsg('');
 
     try {
-      const response = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/review`, {
+      const response = await fetch(`${BACKEND_URL}/api/auth/review`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

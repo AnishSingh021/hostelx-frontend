@@ -114,7 +114,7 @@ export default function Navbar() {
         formData.append('profileImage', profileImageFile);
       }
 
-      const res = await fetch(`${import.meta.env.VITE_API_URL}/api/auth/profile`, {
+      const res = await fetch(`${BACKEND_URL}/api/auth/profile`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${user.token}`
@@ -155,7 +155,7 @@ export default function Navbar() {
     if (!user?.token) return;
     const fetchUnread = async () => {
       try {
-        const res = await fetch(`${import.meta.env.VITE_API_URL}/api/chats/unread`, {
+        const res = await fetch(`${BACKEND_URL}/api/chats/unread`, {
           headers: { 'Authorization': `Bearer ${user.token}` }
         });
         const data = await res.json();

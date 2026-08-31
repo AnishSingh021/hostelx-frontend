@@ -12,9 +12,7 @@ export function AuthProvider({ children }) {
       const storedUser = localStorage.getItem('hostelx_user');
       if (storedUser) {
         const parsed = JSON.parse(storedUser);
-        // Only restore user if they have a valid token
         if (parsed && parsed.token) {
-          // Check for 30-minute tab-close session expiration
           const hasSession = sessionStorage.getItem('hostelx_session_active');
           const lastActiveStr = localStorage.getItem('hostelx_last_active');
           
